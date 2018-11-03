@@ -2,6 +2,7 @@
   "name": "limitr",
   "version": "1.0.0",
   "description": "Rate limiting for Express using Redis.",
+  "repository": "https://github.com/eddiejibson/chae-limitr.git",
   "main": "lib/limitr.js",
   "directories": {
     "lib": "lib"
@@ -9,12 +10,37 @@
   "files": [
     "lib/"
   ],
+  "keywords": [
+    "express-rate-limit",
+    "express",
+    "rate",
+    "limit",
+    "ratelimit",
+    "rate-limit",
+    "redis rate limit",
+    "ratelimiting",
+    "redis",
+    "middleware",
+    "ip",
+    "auth",
+    "authorization",
+    "security",
+    "brute",
+    "force",
+    "bruteforce",
+    "brute-force",
+    "attack"
+  ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "pre-commit": "pretty-quick --staged"
   },
   "author": "Edward Jibson",
   "license": "GPL-3.0-only",
   "dependencies": {
     "ioredis": "^4.2.0"
+  },
+  "devDependencies": {
+    "prettier": "^1.14.3",
+    "pretty-quick": "^1.8.0"
   }
 }
