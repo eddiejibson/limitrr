@@ -1,0 +1,20 @@
+{
+  "name": "limitr",
+  "version": "1.0.0",
+  "description": "Rate limiting for Express using Redis.",
+  "main": "lib/limitr.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "files": [
+    "lib/"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Edward Jibson",
+  "license": "GPL-3.0-only",
+  "dependencies": {
+    "ioredis": "^4.2.0"
+  }
+}
