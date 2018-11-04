@@ -13,33 +13,15 @@ Type: Object
 
 Redis connection information.
 
-###### port
-Redis port
+* **port**: Redis port. Defaults to: `6379`
 
-Default: 6379
+* **host**: Redis hostname. Defaults to: `"127.0.0.1"`
 
-###### host
-Redis hostname
+* **family**: Is redis hostname IPv4 (4) or IPv6 (6)? Defaults to: `4`
 
-Default: "127.0.0.1"
+* **password**: Redis password. Defaults to: `""`
 
-###### family
-Is redis hostname IPv4 (4) or IPv6 (6)?
-
-Default: 4
-
-
-
-###### password
-Redis password
-
-Default: ""
-
-###### db
-
-Redis DB
-
-Default: 0
+* **db**: Redis DB. Defaults to: `0`
 
 ### Example
 
