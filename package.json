@@ -1,9 +1,9 @@
 {
-  "name": "limitr",
+  "name": "limitrr",
   "version": "1.0.0",
   "description": "Rate limiting for Express using Redis.",
-  "repository": "https://github.com/eddiejibson/chae-limitr.git",
-  "main": "lib/limitr.js",
+  "repository": "https://github.com/eddiejibson/chae-limitrr.git",
+  "main": "lib/limitrr.js",
   "directories": {
     "lib": "lib"
   },
@@ -29,6 +29,8 @@
     "force",
     "bruteforce",
     "brute-force",
+    "limitr",
+    "limitrr",
     "attack"
   ],
   "scripts": {
