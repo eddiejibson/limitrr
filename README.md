@@ -3,6 +3,9 @@
     <img alt="chae" src="https://cdn.oxro.io/chae/img/limitrr.png" width="432.8" height="114.2">
   </a> </p> <p align="center">Express rate limiting using Redis.</p>
 
+# Example
+
+Soon.
 
 # Configuration
 
@@ -27,11 +30,11 @@ Redis connection information.
 
 ``` javascript
 redis: {
-  port: 6379, //Redis Port. Required: False. Defaults to 6379
-  host: "127.0.0.1", //Redis hostname. Required: False. Defaults to 127.0.0.1.
-  family: 4, //Is redis hostname IPv4 (4) or IPv6 (6)? Required: False. Defaults to 4 (IPv4).
-  password: "mysecretpassword1234", //Redis password. Required: False. Defaults to empty.
-  db: 0 //Redis DB. Required: False. Defaults to 0.
+  port: 6379, //Redis Port. Required: false. Defaults to 6379
+  host: "127.0.0.1", //Redis hostname. fequired: False. Defaults to "127.0.0.1".
+  family: 4, //Is redis hostname IPv4 (4) or IPv6 (6)? Required: false. Defaults to 4 (IPv4).
+  password: "mysecretpassword1234", //Redis password. Required: false. Defaults to "" (empty).
+  db: 0 //Redis DB. Required: false. Defaults to 0.
 }
 ```
 
@@ -46,7 +49,22 @@ Various options to do with limitrr.
 * **requestsPerExpiry**: How many requests can be accepted until user is rate limited? Defaults to: `100`
 * **completedActionsPerExpiry**: How many completed actions can be accepted until the user is rate limited? This is useful for certain actions such as registering a user - they can have a certain amount of requests but a different (obviously smaller) amount of "completed actions". So if users have recently been successfully registered multiple times under the same IP (or other discriminator), they can be rate limited. They may be allowed 100 requests per certain expiry for general validation and such, but only a small fraction of that for intensive procedures. Defaults to the value in `requestsPerExpiry` or `5` if such is not set.
 * **expiry**: How long should the requests be stored (in seconds) before they are set back to 0? If set to -1, such values will never expire and will stay that way indefinitely or must be manually removed. Defaults to: `900` (15 minutes)
-* **completedExpiry**: How long should the "completed actions" (such as the amount of users registered from such an IP or other discriminator) be stored for before set back to 0? 
+* **completedExpiry**: How long should the "completed actions" (such as the amount of users registered from such an IP or other discriminator) be stored for (in seconds) before set back to 0? If set to -1, such values will never expire and will stay that way indefinitely or must be manually removed. Defaults to the value in `expiry` or `900` (15 minutes) if such is not set.
+* **errorMsg**: Error message to return when the user is being rate limited. Defaults to: `You are being rate limited`
+* **errorStatusCode**: Status code to return when the user is being rate limited. Defaults to `429` (Too Many Requests)
+* **catchErrors**: Should important errors such as failure to connect to the Redis keystore be caught and displayed? If this is not set to true, it will simply throw an error instead. Defaults to `true`.
 
-### 
-  
+### Example
+
+``` javascript
+options: {
+  keyName: "myApp", //The keyname all of the requests will be stored under. Required: false. Defaults to "limitrr"
+  requestsPerExpiry: 100, //How many requests can be accepted until user is rate limited?. Required: false. Defaults to 100.
+  completedActionsPerExpiry: 5, //Is redis hostname IPv4 (4) or IPv6 (6)? Required: false. Defaults to 4 (IPv4).
+  expiry: 900, //How long should the requests be stored (in seconds). Required: False. Defaults to 900.
+  completedExpiry: 900, //How long should the "completed actions" be stored (in seconds). Required: false. Defaults to the value in expiry or 900 if such is not set
+  errorMsg: "You are being rate limited", //Error message to return when user is being rate limited. Required: false. Defaults to: "You are being rate limited"
+  errorStatusCode: 429, //Status code to return when the user is being rate limited. Defaults to: 429 (Too many requests)
+  catchErrors: true //Should important errors such as failure to connect to the Redis keystore be caught and displayed?
+}
+```
