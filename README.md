@@ -14,51 +14,36 @@ Type: Object
 Redis connection information.
 
 ### port
-Required: false
-
-Type: Integer
+Redis port
 
 Default: 6379
 
-Redis port
-
 ### host
-Required: false
-
-Type: String
+Redis hostname
 
 Default: "127.0.0.1"
 
-Redis hostname
-
 ### family
-Required: false
-
-Type: Integer
+Is redis hostname IPv4 (4) or IPv6 (6)?
 
 Default: 4
 
-Is redis hostname IPv4 (4) or IPv6 (6)?
+
 
 ### password
-Required: false
-
-Type: string
+Redis password
 
 Default: ""
 
-Redis password
+
 
 ### db
-Required: false
-
-Type: Integer
-
-Default: 0
 
 Redis DB
 
-### host
+Default: 0
+
+### Example
 
 ``` javascript
 redis: {
