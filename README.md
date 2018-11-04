@@ -4,12 +4,62 @@
   </a> </p> <p align="center">Express rate limiting using Redis.</p>
 
 
-## Configuration Options
+# Configuration
 
-### redis
-Required: true
+## redis
+Required: false
+
 Type: Object
+
 Redis connection information.
+
+### port
+Required: false
+
+Type: Integer
+
+Default: 6379
+
+Redis port
+
+### host
+Required: false
+
+Type: String
+
+Default: "127.0.0.1"
+
+Redis hostname
+
+### family
+Required: false
+
+Type: Integer
+
+Default: 4
+
+Is redis hostname IPv4 (4) or IPv6 (6)?
+
+### password
+Required: false
+
+Type: string
+
+Default: ""
+
+Redis password
+
+### db
+Required: false
+
+Type: Integer
+
+Default: 0
+
+Redis DB
+
+### host
+
 ``` javascript
 redis: {
   port: 6379, //Redis Port. Required: False. Defaults to 6379
@@ -19,4 +69,11 @@ redis: {
   db: 0 //Redis DB. Required: False. Defaults to 0.
 }
 ```
+
+# options
+Required: False
+
+Type: Object
+
+
   
