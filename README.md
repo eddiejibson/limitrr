@@ -13,31 +13,29 @@ Type: Object
 
 Redis connection information.
 
-### port
+###### port
 Redis port
 
 Default: 6379
 
-### host
+###### host
 Redis hostname
 
 Default: "127.0.0.1"
 
-### family
+###### family
 Is redis hostname IPv4 (4) or IPv6 (6)?
 
 Default: 4
 
 
 
-### password
+###### password
 Redis password
 
 Default: ""
 
-
-
-### db
+###### db
 
 Redis DB
 
@@ -55,10 +53,12 @@ redis: {
 }
 ```
 
-# options
-Required: False
+## options
+Required: false
 
 Type: Object
 
+Various options to do with limitrr.
 
+### 
   
