@@ -5,11 +5,13 @@
 
 # Install
 
-```npm install limitrr --save```
+``` bash
+npm install limitrr --save
+```
 
 # Quick Guide
 
-##Basic Usage
+## Basic Usage
 
 ``` javascript
 const express = require('express');
