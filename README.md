@@ -3,9 +3,67 @@
     <img alt="chae" src="https://cdn.oxro.io/chae/img/limitrr.png" width="432.8" height="114.2">
   </a> </p> <p align="center">Express rate limiting using Redis.</p>
 
-# Example
+# Install
 
-Soon.
+```npm install limitrr --save```
+
+# Quick Guide
+
+##Basic Usage
+
+``` javascript
+const express = require('express');
+const app = express();
+const Limitrr = require("limitrr");
+const limitrr = new Limitrr({
+    //Redis keystore connection information
+    "redis": {
+        "password": "mysupersecretpassword",
+        "host": "666.chae.sh",
+        "port": 6379,
+        "family": 4
+        //There are many more options all of which can be seen further into the documentation under the "configuration" title
+    },
+    //General limitrr options
+    "options": {
+        "expiry": 900
+        //There are many more options all of which can be seen further into the documentation under the "configuration" title
+    }
+});
+
+app.use(limitrr.getIp()); //Sets req.realIp to user IP - helpful later on.
+
+//Simple rate limiting
+app.get('/', limitrr.limit(), (req, res, next) => {
+    res.send('Hello World!')
+});
+
+app.get("/registerUser/:user", limitrr.limit(), (req, res, next) => {
+    //Non intensive actions like simple verification will have a different limit 
+    //and will only be measured in terms of each request via the middleware
+    if (req.params.user.length < 5) {
+        //Dummy function creating user
+        someRandomModule.registerUser().then((result) => {
+            //Intensive actions like actually registering a user should have a different limit, hence the completedActionsPerExpiry option
+            //and should only be added to once such task has been completed fully
+            //In this example, we will be limiting the amount of completed actions a certain IP can make. 
+            //Anything can be passed in here. For example, a email address or user ID.
+            //req.realIp was determined by calling the middleware earlier - limitrr.getIp()
+            limitrr.complete(req.realIp); //Calling such will complete
+            //Is also a promise.
+            limitrr.complete(req.realIp).then((result) => {
+                return res.status(200).json({ //In this example, we will be returning a success message as the action has been completed.
+                    "message": "Success!"
+                });
+            }).catch((err) => {
+                //Do something with the caught error
+            });
+        });
+    }
+});
+
+app.listen(port, () => console.log(`Limitrr example app listening on port ${port}!`))
+```
 
 # Configuration
 
