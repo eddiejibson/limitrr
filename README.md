@@ -14,7 +14,7 @@ npm install limitrr --save
 ## Basic Usage
 
 ``` javascript
-const express = require('express');
+const express = require("express");
 const app = express();
 const Limitrr = require("limitrr");
 const limitrr = new Limitrr({
@@ -24,12 +24,14 @@ const limitrr = new Limitrr({
         "host": "666.chae.sh",
         "port": 6379,
         "family": 4
-        //There are many more options all of which can be seen further into the documentation under the "configuration" title
+        //There are many more options all of which can be seen further into the
+        //documentation under the "configuration" title
     },
     //General limitrr options
     "options": {
         "expiry": 900
-        //There are many more options all of which can be seen further into the documentation under the "configuration" title
+        //There are many more options all of which can be seen further into the
+        //documentation under the "configuration" title
     }
 });
 
@@ -41,15 +43,17 @@ app.get('/', limitrr.limit(), (req, res, next) => {
 });
 
 app.get("/registerUser/:user", limitrr.limit(), (req, res, next) => {
-    //Non intensive actions like simple verification will have a different limit 
-    //and will only be measured in terms of each request via the middleware
+    //Non intensive actions like simple verification will have a different limit to intensive ones.
+    //and will only be measured in terms of each request via the middleware.
+    //No further action is required.
     if (req.params.user.length < 5) {
         //Dummy function creating user
         someRandomModule.registerUser().then((result) => {
-            //Intensive actions like actually registering a user should have a different limit, hence the completedActionsPerExpiry option
+            //Intensive actions like actually registering a user should have a
+            //different limit to normal requests, hence the completedActionsPerExpiry option.
             //and should only be added to once such task has been completed fully
-            //In this example, we will be limiting the amount of completed actions a certain IP can make. 
-            //Anything can be passed in here. For example, a email address or user ID.
+            //In this example, we will be limiting the amount of completed actions a certain IP can make.
+            //Anything can be passed in here, however. For example, a email address or user ID.
             //req.realIp was determined by calling the middleware earlier - limitrr.getIp()
             limitrr.complete(req.realIp); //Calling such will complete
             //Is also a promise.
@@ -70,6 +74,7 @@ app.listen(port, () => console.log(`Limitrr example app listening on port ${port
 # Configuration
 
 ## redis
+
 Required: false
 
 Type: Object
@@ -86,7 +91,7 @@ Redis connection information.
 
 * **db**: Redis DB. Defaults to: `0`
 
-### Example
+### Example of the redis object that could be passed into Limitrr
 
 ``` javascript
 redis: {
@@ -99,6 +104,7 @@ redis: {
 ```
 
 ## options
+
 Required: false
 
 Type: Object
@@ -114,7 +120,7 @@ Various options to do with limitrr.
 * **errorStatusCode**: Status code to return when the user is being rate limited. Defaults to `429` (Too Many Requests)
 * **catchErrors**: Should important errors such as failure to connect to the Redis keystore be caught and displayed? If this is not set to true, it will simply throw an error instead. Defaults to `true`.
 
-### Example
+### Example of the options object that could be passed into Limitrr
 
 ``` javascript
 options: {
