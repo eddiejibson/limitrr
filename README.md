@@ -199,4 +199,4 @@ options: {
   errorStatusCode: 429, //Status code to return when the user is being rate limited. Defaults to: 429 (Too many requests)
   catchErrors: true //Should important errors such as failure to connect to the Redis keystore be caught and displayed?
 }
-```i
+```
