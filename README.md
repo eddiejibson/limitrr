@@ -1,7 +1,11 @@
-<p align="center">
-  <a href="https://github.com/eddiejibson/chae-limitrr">
-    <img alt="chae" src="https://cdn.oxro.io/chae/img/limitrr.png" width="432.8" height="114.2">
-  </a> </p> <p align="center">Express rate limiting using Redis.</p>
+<div align="center">
+<a href="https://github.com/eddiejibson/chae-limitrr"><img alt="chae" src="https://cdn.oxro.io/chae/img/limitrr.png" width="432.8" height="114.2"></a>
+<br>
+<br>
+<a href="https://paypal.me/eddiejibson/5"><img src="https://img.shields.io/badge/donate-PayPal-brightgreen.svg"></img></a>
+<img src="https://requires.io/github/eddiejibson/chae-limitrr/requirements.svg?branch=master"></img>
+<p>Express rate limiting using Redis.</p>
+</div>
 
 # Install
 
@@ -58,7 +62,9 @@ app.get("/registerUser/:user", limitrr.limit(), (req, res, next) => {
             limitrr.complete(req.realIp); //Calling such will complete
             //Is also a promise.
             limitrr.complete(req.realIp).then((result) => {
-                return res.status(200).json({ //In this example, we will be returning a success message as the action has been completed.
+                //In this example, we will be returning a
+                //success message as the action has been completed.
+                return res.status(200).json({ 
                     "message": "Success!"
                 });
             }).catch((err) => {
@@ -71,13 +77,57 @@ app.get("/registerUser/:user", limitrr.limit(), (req, res, next) => {
 app.listen(port, () => console.log(`Limitrr example app listening on port ${port}!`))
 ```
 
+## Get the value of a certain key
+
+### limitrr.get()
+
+**Returns**: Promise
+
+```javascript
+//Where discriminator is the thing being limited
+//e.g amount of requests per such (x amount of completed actions/requests per discriminator)
+limitrr.get(discriminator)
+
+//Typically, this tends to be the user's IP.
+limitrr.get(req.realIp)
+//This will return both the amount of requests and completed actions stored under such
+//a discriminator in an object. You can handle like this:
+limitrr.get(req.realIp).then((res) => {
+    console.log(`${res.requests} Requests`)
+    console.log(`${res.completed} Completed Tasks`)
+}).catch((err) => {
+    //Do something with error
+});
+
+//However, if you want to get only the amount of requests/completed value
+//you may specify such when calling:
+limitrr.get(discriminator, type)
+//type can either be "requests" or "completed"
+
+//If we were getting the amount of requests a certain IP has made,
+//we could do this
+limitrr.get(req.realIp, "requests")
+```
+
+
+## Removal of values from certain request/completed keys
+
+``` javascript
+//Where discriminator is the thing being limited
+//e.g amount of requests per such (x amount of completed actions/requests per discriminator)
+limitrr.resetAll(discriminator);
+
+//Typically, this tends to be the user's IP.
+limitrr.resetAll(req.realIp);
+```
+
 # Configuration
 
 ## redis
 
-Required: false
+**Required**: false
 
-Type: Object
+**Type**: Object
 
 Redis connection information.
 
@@ -105,11 +155,11 @@ redis: {
 
 ## options
 
-Required: false
+**Required**: false
 
-Type: Object
+**Type**: Object
 
-Various options to do with limitrr.
+Various options to do with Limitrr.
 
 * **keyName**: The keyname all of the requests will be stored under. This is mainly for aesthetic purposes and does not effect much. However, this should be changed on each initialization of the class to prevent conflict. Defaults to: `"limitrr"`
 * **requestsPerExpiry**: How many requests can be accepted until user is rate limited? Defaults to: `100`
@@ -133,4 +183,4 @@ options: {
   errorStatusCode: 429, //Status code to return when the user is being rate limited. Defaults to: 429 (Too many requests)
   catchErrors: true //Should important errors such as failure to connect to the Redis keystore be caught and displayed?
 }
-```
+```i
