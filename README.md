@@ -109,16 +109,32 @@ limitrr.get(discriminator, type)
 limitrr.get(req.realIp, "requests")
 ```
 
-
 ## Removal of values from certain request/completed keys
+
+### limitrr.reset()
+
+**Returns**: Promise
 
 ``` javascript
 //Where discriminator is the thing being limited
 //e.g amount of requests per such (x amount of completed actions/requests per discriminator)
-limitrr.resetAll(discriminator);
+//This will remove both the amount of requests and completed action count
+limitrr.reset(discriminator);
 
 //Typically, this tends to be the user's IP.
-limitrr.resetAll(req.realIp);
+limitrr.reset(req.realIp);
+
+//If you want to remove just the amount of requests or completed actions, this can be done too.
+//The value passed in can either be "requests" or "completed"
+//In this example, we will be removing the request count for a certain IP
+//Again remebering such is a promise and should be treated like this
+limitrr.reset(req.realIp, "requests").then((result) => {
+    if (result) {
+        console.log("Requests removed")
+    }
+}).catch((err) => {
+    //Do something with error
+});
 ```
 
 # Configuration
