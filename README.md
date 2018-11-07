@@ -7,6 +7,8 @@
 <p>Light Express rate limiting using Redis.</p>
 </div>
 
+**Pull Requests are more than welcome - please feel free to contribute**
+
 # Install
 
 ``` bash
