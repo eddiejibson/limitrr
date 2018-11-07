@@ -85,13 +85,13 @@ app.listen(port, () => console.log(`Limitrr example app listening on port ${port
 
 ```javascript
 //Where discriminator is the thing being limited
-//e.g amount of requests per such (x amount of completed actions/requests per discriminator)
+//e.g x amount of completed actions/requests per discriminator
 limitrr.get(discriminator)
 
-//Typically, this tends to be the user's IP.
+//This tends to be the user's IP.
 limitrr.get(req.realIp)
-//This will return both the amount of requests and completed actions stored under such
-//a discriminator in an object. You can handle like this:
+//This will return both the amount of requests and completed actions stored under the
+//discriminator provided in an object. You can handle like this:
 limitrr.get(req.realIp).then((res) => {
     console.log(`${res.requests} Requests`)
     console.log(`${res.completed} Completed Tasks`)
@@ -100,13 +100,14 @@ limitrr.get(req.realIp).then((res) => {
 });
 
 //However, if you want to get only the amount of requests/completed value
-//you may specify such when calling:
+//you may specify when calling:
 limitrr.get(discriminator, type)
-//type can either be "requests" or "completed"
+//Where type can either be "requests" or "completed"
 
 //If we were getting the amount of requests a certain IP has made,
 //we could do this
 limitrr.get(req.realIp, "requests")
+//This will return the integer solely (not within an object)
 ```
 
 ## Removal of values from certain request/completed keys
@@ -117,17 +118,17 @@ limitrr.get(req.realIp, "requests")
 
 ``` javascript
 //Where discriminator is the thing being limited
-//e.g amount of requests per such (x amount of completed actions/requests per discriminator)
+//e.g x amount of completed actions/requests per discriminator
 //This will remove both the amount of requests and completed action count
 limitrr.reset(discriminator);
 
-//Typically, this tends to be the user's IP.
+//This tends to be the user's IP.
 limitrr.reset(req.realIp);
 
-//If you want to remove just the amount of requests or completed actions, this can be done too.
-//The value passed in can either be "requests" or "completed"
+//If you want to remove either one of the amount of requests or completed actions.
+//but not the other, this can be done too.
+//The value passed in can either be "requests" or "completed".
 //In this example, we will be removing the request count for a certain IP
-//This must be treated as a promise
 limitrr.reset(req.realIp, "requests").then((result) => {
     if (result) {
         console.log("Requests removed")
