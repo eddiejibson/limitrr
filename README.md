@@ -145,7 +145,7 @@ limitrr.reset(req.realIp, "requests").then((result) => {
 
 **Type**: Object
 
-Redis connection information.
+**Description**: Redis connection information.
 
 * **port**: Redis port. Defaults to: `6379`
 
@@ -175,7 +175,7 @@ redis: {
 
 **Type**: Object
 
-Various options to do with Limitrr.
+**Description**: Various options to do with Limitrr.
 
 * **keyName**: The keyname all of the requests will be stored under. This is mainly for aesthetic purposes and does not effect much. However, this should be changed on each initialization of the class to prevent conflict. Defaults to: `"limitrr"`
 * **requestsPerExpiry**: How many requests can be accepted until user is rate limited? Defaults to: `100`
