@@ -31,7 +31,8 @@
     "brute-force",
     "limitr",
     "limitrr",
-    "attack"
+    "attack",
+    "light"
   ],
   "scripts": {
     "pre-commit": "pretty-quick --staged"
