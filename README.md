@@ -55,12 +55,12 @@ app.get("/registerUser/:user", limitrr.limit(), (req, res, next) => {
         someRandomModule.registerUser().then((result) => {
             //Intensive actions like actually registering a user should have a
             //different limit to normal requests, hence the completedActionsPerExpiry option.
-            //and should only be added to once such task has been completed fully
+            //and should only be added to once this task has been completed fully
             //In this example, we will be limiting the amount of completed actions a certain IP can make.
             //Anything can be passed in here, however. For example, a email address or user ID.
             //req.realIp was determined by calling the middleware earlier - limitrr.getIp()
-            limitrr.complete(req.realIp); //Calling such will complete
-            //Is also a promise.
+            limitrr.complete(req.realIp); //Calling will add to the completed count
+            //Bearing in mind this a promise.
             limitrr.complete(req.realIp).then((result) => {
                 //In this example, we will be returning a
                 //success message as the action has been completed.
@@ -127,7 +127,7 @@ limitrr.reset(req.realIp);
 //If you want to remove just the amount of requests or completed actions, this can be done too.
 //The value passed in can either be "requests" or "completed"
 //In this example, we will be removing the request count for a certain IP
-//Again remebering such is a promise and should be treated like this
+//This must be treated as a promise
 limitrr.reset(req.realIp, "requests").then((result) => {
     if (result) {
         console.log("Requests removed")
@@ -151,7 +151,7 @@ limitrr.reset(req.realIp, "requests").then((result) => {
 
 * **host**: Redis hostname. Defaults to: `"127.0.0.1"`
 
-* **family**: Is redis hostname IPv4 (4) or IPv6 (6)? Defaults to: `4`
+* **family**: If redis hostname IPv4 (4) or IPv6 (6). Defaults to: `4`
 
 * **password**: Redis password. Defaults to: `""`
 
@@ -179,7 +179,7 @@ redis: {
 
 * **keyName**: The keyname all of the requests will be stored under. This is mainly for aesthetic purposes and does not affect much. However, this should be changed on each initialization of the class to prevent conflict. Defaults to: `"limitrr"`
 * **requestsPerExpiry**: How many requests can be accepted until user is rate limited? Defaults to: `100`
-* **completedActionsPerExpiry**: How many completed actions can be accepted until the user is rate limited? This is useful for certain actions such as registering a user - they can have a certain amount of requests but a different (obviously smaller) amount of "completed actions". So if users have recently been successfully registered multiple times under the same IP (or other discriminator), they can be rate limited. They may be allowed 100 requests per certain expiry for general validation and such, but only a small fraction of that for intensive procedures. Defaults to the value in `requestsPerExpiry` or `5` if such is not set.
+* **completedActionsPerExpiry**: How many completed actions can be accepted until the user is rate limited? This is useful for certain actions such as registering a user - they can have a certain amount of requests but a different (obviously smaller) amount of "completed actions". So if users have recently been successfully registered multiple times under the same IP (or other discriminator), they can be rate limited. They may be allowed 100 requests per certain expiry for general validation and the like, but only a small fraction of that for intensive procedures. Defaults to the value in `requestsPerExpiry` or `5` if such is not set.
 * **expiry**: How long should the requests be stored (in seconds) before they are set back to 0? If set to -1, values will never expire and will stay that way indefinitely or must be manually removed. Defaults to: `900` (15 minutes)
 * **completedExpiry**: How long should the "completed actions" (such as the amount of users registered from such an IP or other discriminator) be stored for (in seconds) before set back to 0? If set to -1, such values will never expire and will stay that way indefinitely or must be manually removed. Defaults to the value in `expiry` or `900` (15 minutes) if such is not set.
 * **errorMsg**: Error message to return when the user is being rate limited. Defaults to: `You are being rate limited`
