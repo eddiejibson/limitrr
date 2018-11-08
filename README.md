@@ -11,6 +11,10 @@
 
 **Pull Requests are welcomed**
 
+# Roadmap
+
+- [ ] Create multiple route limits (separate expiry times e.t.c) without having to initialize the Limitrr class multiple times
+
 # Install
 
 ``` bash
