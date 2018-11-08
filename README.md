@@ -1,4 +1,3 @@
-
 <div align="center">
 <a href="https://github.com/eddiejibson/chae-limitrr"><img alt="chae" src="https://cdn.oxro.io/chae/img/limitrr.png" width="432.8" height="114.2"></a>
 <br>
@@ -75,7 +74,7 @@ app.get("/registerUser/:user", limitrr.limit(), (req, res, next) => {
                     "message": "Success!"
                 });
             }).catch((err) => {
-                //Do something with the caught error
+                //Handle error
             });
         });
     }
@@ -103,7 +102,7 @@ limitrr.get(req.realIp).then((res) => {
     console.log(`${res.requests} Requests`)
     console.log(`${res.completed} Completed Tasks`)
 }).catch((err) => {
-    //Do something with error
+    //Handle error
 });
 
 //However, if you want to get only the amount of requests/completed value
@@ -141,7 +140,7 @@ limitrr.reset(req.realIp, "requests").then((result) => {
         console.log("Requests removed")
     }
 }).catch((err) => {
-    //Do something with error
+    //Handle with error
 });
 ```
 
@@ -192,7 +191,7 @@ redis: {
 * **completedExpiry**: How long should the "completed actions" (such as the amount of users registered from a particular IP or other discriminator) be stored for (in seconds) before it is set back to 0? If set to -1, such values will never expire and will stay that way indefinitely or must be manually removed. Defaults to the value in `expiry` or `900` (15 minutes) if not set.
 * **errorMsg**: Error message to return when the user is being rate limited. Defaults to: `You are being rate limited`
 * **errorStatusCode**: Status code to return when the user is being rate limited. Defaults to `429` (Too Many Requests)
-* **catchErrors**: Should important errors such as failure to connect to the Redis keystore be caught and displayed? If this is not set to true, it will simply throw an error instead. Defaults to `true`.
+* **catchErrors**: Should important errors such as failure to connect to the Redis keystore be caught and displayed? If this is set to false, it will throw an error instead. Defaults to `true`.
 
 ### Example of the options object that could be passed into Limitrr
 
