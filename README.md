@@ -1,3 +1,4 @@
+
 <div align="center">
 <a href="https://github.com/eddiejibson/chae-limitrr"><img alt="chae" src="https://cdn.oxro.io/chae/img/limitrr.png" width="432.8" height="114.2"></a>
 <br>
@@ -25,24 +26,23 @@ const express = require("express");
 const app = express();
 const Limitrr = require("limitrr");
 const limitrr = new Limitrr({
-    //Redis keystore connection information
+    //Redis connection information
     "redis": {
         "password": "mysupersecretpassword",
         "host": "666.chae.sh",
         "port": 6379,
         "family": 4
-        //There are many more options all of which can be seen further into the
-        //documentation under the "configuration" title
+        //Further options are possible, see the "configuration" 	section
     },
     //General limitrr options
     "options": {
         "expiry": 900
-        //There are many more options all of which can be seen further into the
-        //documentation under the "configuration" title
+        //Further options are possible, see the "configuration" 	section
     }
 });
 
-app.use(limitrr.getIp()); //Sets req.realIp to user IP - helpful later on.
+app.use(limitrr.getIp()); //Middleware to get a user's IP - even if the application is behind Cloudflare
+//This is assigned to req.realIp
 
 //Simple rate limiting
 app.get('/', limitrr.limit(), (req, res, next) => {
@@ -155,7 +155,7 @@ limitrr.reset(req.realIp, "requests").then((result) => {
 
 * **host**: Redis hostname. Defaults to: `"127.0.0.1"`
 
-* **family**: If redis hostname IPv4 (4) or IPv6 (6). Defaults to: `4`
+* **family**: If Redis hostname is IPv4 (4) or IPv6 (6). Defaults to: `4` (IPv4)
 
 * **password**: Redis password. Defaults to: `""`
 
