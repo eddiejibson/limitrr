@@ -15,8 +15,8 @@ Limitrr assists with the rate-limiting of various routes within your Express app
 
 # Roadmap
 
-- [x] Create multiple route limits (separate expiry times e.t.c) without having to initialize the Limitrr class multiple times
-- [ ] Pass parameters into functions via an object
+- [x]   Create multiple route limits (separate expiry times e.t.c) without having to initialize the Limitrr class multiple times
+- [ ]   Pass parameters into functions via an object
 
 # Install
 
