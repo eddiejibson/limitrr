@@ -2,7 +2,7 @@
 <a href="https://github.com/eddiejibson/chae-limitrr"><img alt="chae" src="https://cdn.oxro.io/chae/img/limitrr.png" width="432.8" height="114.2"></a>
 <br>
 <br>
-<a href="#"><img src="https://api.codacy.com/project/badge/Grade/632e7671cbf54efa9bd66d8f3c5df9b4"></a>
+<a href="https://discord.gg/4KP3fXw"><img src="https://api.codacy.com/project/badge/Grade/632e7671cbf54efa9bd66d8f3c5df9b4"></a>
 <a href="https://discord.gg/C8MtjUm"><img src="https://img.shields.io/discord/498178136517640194.svg"></a>
 <a href="https://paypal.me/eddiejibson/5"><img src="https://img.shields.io/badge/donate-PayPal-brightgreen.svg"></a>
 <img src="https://requires.io/github/eddiejibson/chae-limitrr/requirements.svg?branch=master">
