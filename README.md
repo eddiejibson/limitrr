@@ -15,6 +15,8 @@ Limitrr assists with the rate-limiting of various routes within your Express app
 
 # Roadmap
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/ac214dc580fb46f3bbf8735abda4a4ef)](https://app.codacy.com/app/jibson/chae-limitrr?utm_source=github.com&utm_medium=referral&utm_content=eddiejibson/chae-limitrr&utm_campaign=Badge_Grade_Dashboard)
+
 - [x]   Create multiple route limits (separate expiry times e.t.c) without having to initialize the Limitrr class multiple times
 - [ ]   Pass parameters into functions via an object
 
