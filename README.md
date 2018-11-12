@@ -17,7 +17,7 @@ Limitrr assists with the rate-limiting of various routes within your Express app
 # Roadmap
 
 - [x]   Create multiple route limits (separate expiry times e.t.c) without having to initialize the Limitrr class multiple times
-- [ ]   Return headers to user with rate limiting details - how many requests/actions remain before restrictions are put in place, how long before the values expire and how many requests/actions are allowed per that route.
+- [x]   Return headers to user with rate limiting details - how many requests/actions remain before restrictions are put in place, how long before the values expire and how many requests/actions are allowed per that route.
 - [ ]   Unit Tests
 - [ ]   Pass parameters into functions via an object
 
