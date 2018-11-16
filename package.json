@@ -44,6 +44,9 @@
     "ioredis": "^4.2.0"
   },
   "devDependencies": {
+    "chai": "^4.2.0",
+    "chai-http": "^4.2.0",
+    "mocha": "^5.2.0",
     "prettier": "^1.14.3",
     "pretty-quick": "^1.8.0"
   }
