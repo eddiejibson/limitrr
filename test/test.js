@@ -7,15 +7,6 @@
  * @Copyright: (c) 2018 Oxro Holdings LLC
  */
 
-//THESE TESTS ARE SO SHIT LMFAO SOMEONE
-//PLEASE FUCKING DO THEM
-//FOR ME BECAUSE FUCK IS THIS LMFAO
-//at least
-//we can see
-//it doesnt
-//break
-//thnx ly
-
 const mocha = require("mocha"),
     chai = require("chai"),
     chaiHttp = require("chai-http"),
