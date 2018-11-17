@@ -6,6 +6,7 @@ jobs:
             - {image: redis}
         working_directory: ~/limitrr
         steps:
+            - checkout
             - {run: {name: update-npm, command: 'sudo npm install -g npm@latest'}}
             - {restore_cache: {keys: ['v1-dependencies-{{ checksum "package.json" }}', v1-dependencies-]}}
             - {run: 'npm install'}
