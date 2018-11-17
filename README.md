@@ -2,8 +2,8 @@
 <a href="https://github.com/eddiejibson/chae-limitrr"><img alt="chae" src="https://cdn.oxro.io/chae/img/limitrr.png" width="432.8" height="114.2"></a>
 <br>
 <br>
-<a href="https://discord.gg/4KP3fXw"><img src="https://api.codacy.com/project/badge/Grade/632e7671cbf54efa9bd66d8f3c5df9b4"></a>
-<a href="https://discord.gg/C8MtjUm"><img src="https://img.shields.io/discord/498178136517640194.svg"></a>
+<img src="https://www.codefactor.io/repository/github/eddiejibson/chae-limitrr/badge">
+<a href="https://discord.gg/4KP3fXw"><img src="https://img.shields.io/discord/498178136517640194.svg"></a>
 <a href="https://paypal.me/eddiejibson/5"><img src="https://img.shields.io/badge/donate-PayPal-brightgreen.svg"></a>
 <img src="https://requires.io/github/eddiejibson/chae-limitrr/requirements.svg?branch=master">
 <img src="https://img.shields.io/npm/dw/limitrr.svg">
@@ -14,14 +14,14 @@ Limitrr assists with the rate-limiting of various routes within your Express app
 
 **Pull Requests are welcomed**
 
-# Roadmap
+## Roadmap
 
 - [x]   Create multiple route limits (separate expiry times e.t.c) without having to initialize the Limitrr class multiple times
-- [ ]   Return headers to user with rate limiting details - how many requests/actions remain before restrictions are put in place, how long before the values expire and how many requests/actions are allowed per that route.
+- [x]   Return headers to user with rate limiting details - how many requests/actions remain before restrictions are put in place, how long before the values expire and how many requests/actions are allowed per that route.
 - [ ]   Unit Tests
-- [ ]   Pass parameters into functions via an object
+- [x]   Pass parameters into functions via an object
 
-# Install
+# Installation
 
 ``` bash
 npm install limitrr --save
