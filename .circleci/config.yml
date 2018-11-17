@@ -16,8 +16,5 @@ jobs:
             - {save_cache: {paths: [node_modules], key: 'v1-dependencies-{{ checksum "package.json" }}'}}
             - {run: 'mkdir reports'}
             - {run: {name: 'npm test', command: './node_modules/.bin/nyc ./node_modules/.bin/mocha --recursive --timeout=10000 --exit --reporter mocha-junit-reporter --reporter-options mochaFile=reports/mocha/test-results.xml', when: always}}
-            - {run: {name: code-coverage, command: "mkdir coverage\n./node_modules/.bin/nyc report --reporter=text-lcov > coverage/lcov.info\n./cc-test-reporter after-build -t lcov\n", when: always}}
             - {store_test_results: {path: reports}}
             - {store_artifacts: {path: ./reports/mocha/test-results.xml}}
-            - {store_artifacts: {path: ./reports/eslint/eslint.xml}}
-            - {store_artifacts: {path: ./coverage/lcov.info, prefix: tests}}
