@@ -2,10 +2,20 @@
  * @Project: limitrr
  * @Created Date: Thursday, November 15th 2018, 6:17:26 pm
  * @Author: Edward Jibson
- * @Last Modified Time: November 17th 2018, 6:57:59 pm
+ * @Last Modified Time: November 17th 2018, 7:36:52 pm
  * @Last Modified By: Edward Jibson
  * @Copyright: (c) 2018 Oxro Holdings LLC
  */
+
+//THESE TESTS ARE SO SHIT LMFAO SOMEONE
+//PLEASE FUCKING DO THEM
+//FOR ME BECAUSE FUCK IS THIS LMFAO
+//at least
+//we can see
+//it doesnt
+//break
+//thnx ly
+
 const mocha = require("mocha"),
     chai = require("chai"),
     chaiHttp = require("chai-http"),

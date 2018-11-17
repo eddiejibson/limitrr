@@ -2,6 +2,7 @@
 <a href="https://github.com/eddiejibson/chae-limitrr"><img alt="chae" src="https://cdn.oxro.io/chae/img/limitrr.png" width="432.8" height="114.2"></a>
 <br>
 <br>
+<img src="https://circleci.com/gh/eddiejibson/chae-limitrr.svg?style=svg"></img>
 <img src="https://www.codefactor.io/repository/github/eddiejibson/chae-limitrr/badge">
 <a href="https://discord.gg/4KP3fXw"><img src="https://img.shields.io/discord/498178136517640194.svg"></a>
 <a href="https://paypal.me/eddiejibson/5"><img src="https://img.shields.io/badge/donate-PayPal-brightgreen.svg"></a>
@@ -18,7 +19,7 @@ Limitrr assists with the rate-limiting of various routes within your Express app
 
 - [x]   Create multiple route limits (separate expiry times e.t.c) without having to initialize the Limitrr class multiple times
 - [x]   Return headers to user with rate limiting details - how many requests/actions remain before restrictions are put in place, how long before the values expire and how many requests/actions are allowed per that route.
-- [ ]   Unit Tests
+- [x]   Unit Tests
 - [x]   Pass parameters into functions via an object
 
 # Installation
@@ -85,7 +86,9 @@ app.get("/registerUser/:user", limitrr.limit(), (req, res, next) => {
             //In this example, we will be limiting the amount of completed actions a certain IP can make.
             //Anything can be passed in here, however. For example, a email address or user ID.
             //req.realIp was determined by calling the middleware earlier - limitrr.getIp()
-            limitrr.complete(req.realIp); //Calling will add to the completed count
+            limitrr.complete({
+                "discriminator": req.realIp}
+            }); //Calling will add to the completed count
             //Bearing in mind this a promise.
             limitrr.complete(req.realIp).then((result) => {
                 //In this example, we will be returning a
@@ -103,6 +106,17 @@ app.get("/registerUser/:user", limitrr.limit(), (req, res, next) => {
 app.listen(3000, () => console.log(`Limitrr example app listening on port 3000!`))
 ```
 
+## Headers
+
+The limitrr.limit() middleware function will return headers to the user. They are defined as followed:
+
+- `X-RateLimit-Limit`: What is the maximum amount of requests a user can make to this route before they are rate limited.
+- `X-RateLimit-Remaining`: How many requests does the user have remaining before they are rate limited.
+- `X-RateLimit-Reset`: How much time does the user have (in seconds) before their current count of requests are reset.
+- `X-RateLimit-Limit-Actions`: What is the maximum amount of completed actions (e.g user registration) a user can complete via this route before they are rate limited.
+- `X-RateLimit-Remaining-Actions`: How many completed actions can the user make before they are rate limited.
+- `X-RateLimit-Reset-Actions`: How much time does the user have (in seconds) before their current count of completed actions are reset.
+  
 ## Get the value of a certain key
 
 ### limitrr.get()
@@ -110,29 +124,37 @@ app.listen(3000, () => console.log(`Limitrr example app listening on port 3000!`
 **Returns**: Promise
 
 ``` javascript
-limitrr.get(discriminator, route)
+limitrr.get({
+    "discriminator": discriminator, //Required
+    "route": route //Not required
+});
 ```
 
 #### Parameters
+
+*Must be passed into function via object*
 
 - **discriminator**: **Required** Where discriminator is the thing being limited (e.g x amount of completed actions/requests per discriminator)
 - **route**: *String* When route should the values be retrieved from? If this is not set, it will get the counts from the default route.
 
 ```javascript
-limitrr.get(discriminator, route) //Besides discriminator, all parameters are optional.
+limitrr.get({
+    "discriminator": discriminator,
+    "route": route
+}); //Besides discriminator, all parameters are optional.
 //If type is not passed into the function, it will
 //return both the amount of requests and completed actions
 
 
 //Where discriminator is the thing being limited
 //e.g x amount of completed actions/requests per discriminator
-limitrr.get(discriminator)
+limitrr.get({"discriminator": discriminator});
 
 //This tends to be the user's IP.
-limitrr.get(req.realIp)
+limitrr.get({"discriminator": req.realIp})
 //This will return both the amount of requests and completed actions stored under the
 //discriminator provided in an object. You can handle like this:
-limitrr.get(req.realIp).then((res) => {
+limitrr.get({"discriminator": req.realIp}).then((res) => {
     console.log(`${res.requests} Requests`);
     console.log(`${res.completed} Completed Tasks`);
 }).catch((err) => {
@@ -142,7 +164,10 @@ limitrr.get(req.realIp).then((res) => {
 //The above example would get the request and completed task count from the default
 //route. If you would like to retrieve values from a different route, you can specify
 //this as well. It can be done like this:
-limitrr.get(req.realIp, "exampleRouteName").then((res) => {
+limitrr.get({
+    "discriminator": req.realIp,
+    "route": "exampleRouteName"
+}).then((res) => {
     console.log(`${res.requests} Requests made through the route exampleRouteName`);
     console.log(`${res.completed} Completed Tasks made through the route exampleRouteName`);
 }).catch((err) => {
@@ -158,10 +183,16 @@ limitrr.get(req.realIp, "exampleRouteName").then((res) => {
 **Returns**: Promise
 
 ``` javascript
-limitrr.reset(discriminator, type, route)
+limitrr.reset({
+    "discriminator": discriminator, //Required
+    "type": type, //Not required
+    "route": route //Not required
+});
 ```
 
 #### Parameters
+
+*Must be passed into function via object*
 
 - **discriminator**: **Required** Where discriminator is the thing being limited (e.g x amount of completed actions/requests per discriminator)
 - **type**: Which count do you wish to be reset? `requests` or `completed`? If you want both removed, set this to false. Or, don't pass this value in at all.
@@ -171,16 +202,19 @@ limitrr.reset(discriminator, type, route)
 //Where discriminator is the thing being limited
 //e.g x amount of completed actions/requests per discriminator
 //This will remove both the amount of requests and completed action count
-limitrr.reset(discriminator);
+limitrr.reset({"discriminator": discriminator});
 
 //This tends to be the user's IP.
-limitrr.reset(req.realIp);
+limitrr.reset({"discriminator": req.realIp});
 
 //If you want to remove either one of the amount of requests or completed actions.
 //but not the other, this can be done too.
 //The value passed in can either be "requests" or "completed".
 //In this example, we will be removing the request count for a certain IP
-limitrr.reset(req.realIp, "requests").then((res) => {
+limitrr.reset({
+    "discriminator": req.realIp,
+    "type": "requests"
+    }).then((res) => {
     if (res) {
         console.log("Requests removed");
     }
@@ -189,9 +223,10 @@ limitrr.reset(req.realIp, "requests").then((res) => {
 });
 
 //If you wish to reset counts from a particular route, this can be done as well.
-//The second parameter for the type has been set to false as we want both
-//the request and completed count removed - not just one.
-limitrr.reset(req.realIp, false, "exampleRouteName").then((res) => {
+limitrr.reset({
+    "discriminator": req.realIp,
+    "route": "exampleRouteName"
+    }).then((res) => {
      if (res) {
         console.log("Requests removed from the route exampleRouteName");
     }
