@@ -126,7 +126,8 @@ The limitrr.limit() middleware function will return headers to the user. They ar
 ``` javascript
 limitrr.get({
     "discriminator": discriminator, //Required
-    "route": route //Not required
+    "route": route, //Not required
+    "type": type //Not required
 });
 ```
 
@@ -136,11 +137,13 @@ limitrr.get({
 
 - **discriminator**: **Required** Where discriminator is the thing being limited (e.g x amount of completed actions/requests per discriminator)
 - **route**: *String* When route should the values be retrieved from? If this is not set, it will get the counts from the default route.
+- **type**: *String* Instead of retrieving both values, you can specify either `requests` or `completed` in this key and only that will be returned as an integer.
 
 ```javascript
 limitrr.get({
     "discriminator": discriminator,
     "route": route
+    "type": type
 }); //Besides discriminator, all parameters are optional.
 //If type is not passed into the function, it will
 //return both the amount of requests and completed actions
@@ -195,7 +198,7 @@ limitrr.reset({
 *Must be passed into function via object*
 
 - **discriminator**: **Required** Where discriminator is the thing being limited (e.g x amount of completed actions/requests per discriminator)
-- **type**: Which count do you wish to be reset? `requests` or `completed`? If you want both removed, set this to false. Or, don't pass this value in at all.
+- **type**: Which count do you wish to be reset? `requests` or `completed`? If this is not set, both will be removed.
 - **route**: *String* When route should the values be retrieved from? If this is not set, it will get the counts from the `default` route.
 
 ``` javascript
