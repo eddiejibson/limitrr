@@ -262,7 +262,7 @@ limitrr.reset(req.realIp, false, "exampleRouteName").then((res) => {
 
 **Description**: Define route restrictions.
 
-Inside the routes object, you can define many seperate routes and set custom rules within them. The custom rules you can set are:
+Inside the routes object, you can define many separate routes and set custom rules within them. The custom rules you can set are:
 
 - **requestsPerExpiry**: *Integer* How many requests can be accepted until user is rate limited? Defaults to: `100`
 - **completedActionsPerExpiry**: *Integer* How many completed actions can be accepted until the user is rate limited? This is useful for certain actions such as registering a user - they can have a certain amount of requests but a different (obviously smaller) amount of "completed actions". So if users have recently been successfully registered multiple times under the same IP (or other discriminator), they can be rate limited. They may be allowed 100 requests per certain expiry for general validation and the like, but only a small fraction of that for intensive procedures. Defaults to the value in `requestsPerExpiry` or `5` if not set.
