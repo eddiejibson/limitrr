@@ -4,7 +4,6 @@
 <br>
 <img src="https://circleci.com/gh/eddiejibson/chae-limitrr.svg?style=svg"></img>
 <img src="https://www.codefactor.io/repository/github/eddiejibson/chae-limitrr/badge">
-<a href="https://discord.gg/4KP3fXw"><img src="https://img.shields.io/discord/498178136517640194.svg"></a>
 <a href="https://paypal.me/eddiejibson/5"><img src="https://img.shields.io/badge/donate-PayPal-brightgreen.svg"></a>
 <img src="https://requires.io/github/eddiejibson/chae-limitrr/requirements.svg?branch=master">
 <img src="https://img.shields.io/npm/dw/limitrr.svg">
