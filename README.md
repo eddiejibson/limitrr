@@ -12,6 +12,8 @@
 
 Limitrr assists with the rate-limiting of various routes within your Express application. Unlike other similar packages, this utility allows the user to limit not only by the number of requests but also the number of completed actions (e.g allowing a certain amount of accounts to be successfully created within a timespan) and have such restricted with custom options. As well as this, custom discriminators are possible - you no longer have to limit by just the user's IP.
 
+If you appreciate this project, please 🌟 it on GitHub.
+
 **Pull Requests are welcomed**
 
 ## Roadmap
