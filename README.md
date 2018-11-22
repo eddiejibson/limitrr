@@ -186,8 +186,8 @@ limitrr.get({
 
 ```javascript
 limitrr.complete({
-    "discriminator": discriminator,
-    "route": route
+    "discriminator": discriminator, //Required
+    "route": route //Not Required
 });
 ```
 
