@@ -178,6 +178,26 @@ limitrr.get({
 
 ```
 
+## Complete action/task count
+
+### limitrr.complete()
+
+**Returns**: Promise
+
+```javascript
+limitrr.complete({
+    "discriminator": discriminator,
+    "route": route
+});
+```
+
+#### Parameters
+
+*Must be passed into function via object*
+
+- **discriminator**: **Required** Where discriminator is the thing being limited (e.g x amount of completed actions per discriminator)
+- **route**: *String* What route should the values be inserted into? If this is not set, it will default to `default`.
+
 ## Removal of values from certain request/completed keys
 
 ### limitrr.reset()
@@ -198,7 +218,7 @@ limitrr.reset({
 
 - **discriminator**: **Required** Where discriminator is the thing being limited (e.g x amount of completed actions/requests per discriminator)
 - **type**: Which count do you wish to be reset? `requests` or `completed`? If this is not set, both will be removed.
-- **route**: *String* When route should the values be retrieved from? If this is not set, it will get the counts from the `default` route.
+- **route**: *String* What route should the values be retrieved from? If this is not set, it will get the counts from the `default` route.
 
 ``` javascript
 //Where discriminator is the thing being limited
@@ -332,5 +352,4 @@ Inside the routes object, you can define many separate routes and set custom rul
         "requestsPerExpiry": 500
     }
 }
-
 ```
