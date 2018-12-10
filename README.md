@@ -285,7 +285,7 @@ limitrr.reset({
 
 ``` javascript
 //Pass in a string containing a redis URI.
-"redis: 'redis://127.0.0.1:6379/0'
+"redis": "redis://127.0.0.1:6379/0"
 //Alternatively, use an object with the connection information.
 "redis": {
   "port": 6379, //Redis Port. Required: false. Defaults to 6379
