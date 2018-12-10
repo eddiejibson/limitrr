@@ -47,8 +47,6 @@
     "chai-http": "^4.2.0",
     "express": "^4.16.4",
     "mocha": "^5.2.0",
-    "mocha-circleci-reporter": "0.0.3",
-    "prettier": "^1.14.3",
-    "pretty-quick": "^1.8.0"
+    "mocha-circleci-reporter": "0.0.3"
   }
 }
