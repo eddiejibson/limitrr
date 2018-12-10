@@ -265,9 +265,11 @@ limitrr.reset({
 
 **Required**: false
 
-**Type**: Object
+**Type**: Object OR String
 
 **Description**: Redis connection information.
+
+***Either pass in a string containing the URI of the redis instance or an object containing the connection information:***
 
 - **port**: *Integer* Redis port. Defaults to: `6379`
 
@@ -282,6 +284,9 @@ limitrr.reset({
 ### Example of the redis object that could be passed into Limitrr
 
 ``` javascript
+//Pass in a string containing a redis URI.
+"redis: 'redis://127.0.0.1:6379/0'
+//Alternatively, use an object with the connection information.
 "redis": {
   "port": 6379, //Redis Port. Required: false. Defaults to 6379
   "host": "127.0.0.1", //Redis hostname. fequired: False. Defaults to "127.0.0.1".
