@@ -34,9 +34,7 @@
     "attack",
     "light"
   ],
-  "scripts": {
-    "pre-commit": "pretty-quick --staged"
-  },
+  "scripts": {},
   "author": "Edward Jibson",
   "license": "GPL-3.0-only",
   "dependencies": {
