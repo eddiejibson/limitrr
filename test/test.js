@@ -47,7 +47,7 @@ limitrr.reset({
 app.get('/', limitrr.limit({
     "route": "two",
     "test": true
-}), (req, res, next) => {
+}), (req, res) => {
     res.status(200).json({
         "pass": true
     });
