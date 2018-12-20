@@ -6,7 +6,7 @@
 <img src="https://www.codefactor.io/repository/github/eddiejibson/chae-limitrr/badge">
 <a href="https://paypal.me/eddiejibson/5"><img src="https://img.shields.io/badge/donate-PayPal-brightgreen.svg"></a>
 <img src="https://requires.io/github/eddiejibson/chae-limitrr/requirements.svg?branch=master">
-<img src="https://img.shields.io/npm/dw/limitrr.svg">
+<img src="https://img.shields.io/npm/dt/limitrr.svg">
 <p>Light Express rate limiting using Redis.</p>
 </div>
 
