@@ -74,7 +74,9 @@ app.get('/', limitrr.limit(), (req, res, next) => {
     res.send('Hello World!')
 });
 
-app.get("/registerUser/:user", limitrr.limit(), (req, res, next) => {
+app.get("/registerUser/:user", limitrr.limit({
+    "route": "createUser" //You can also pass the route name within the limitrr middleware function
+    }), (req, res, next) => {
     //Non intensive actions like simple verification will have a different limit to intensive ones.
     //and will only be measured in terms of each request via the middleware.
     //No further action is required.
@@ -88,7 +90,7 @@ app.get("/registerUser/:user", limitrr.limit(), (req, res, next) => {
             //Anything can be passed in here, however. For example, a email address or user ID.
             //req.realIp was determined by calling the middleware earlier - limitrr.getIp()
             limitrr.complete({
-                "discriminator": req.realIp}
+                "discriminator": req.realIp
             }); //Calling will add to the completed count
             //Bearing in mind this a promise.
             limitrr.complete(req.realIp).then((result) => {
@@ -117,7 +119,7 @@ The limitrr.limit() middleware function will return headers to the user. They ar
 - `X-RateLimit-Limit-Actions`: What is the maximum amount of completed actions (e.g user registration) a user can complete via this route before they are rate limited.
 - `X-RateLimit-Remaining-Actions`: How many completed actions can the user make before they are rate limited.
 - `X-RateLimit-Reset-Actions`: How much time does the user have (in seconds) before their current count of completed actions are reset.
-  
+
 ## Get the value of a certain key
 
 ### limitrr.get()
