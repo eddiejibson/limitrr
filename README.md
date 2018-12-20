@@ -4,7 +4,6 @@
 <br>
 <img src="https://circleci.com/gh/eddiejibson/chae-limitrr.svg?style=svg"></img>
 <img src="https://www.codefactor.io/repository/github/eddiejibson/chae-limitrr/badge">
-<a href="https://discord.gg/4KP3fXw"><img src="https://img.shields.io/discord/498178136517640194.svg"></a>
 <a href="https://paypal.me/eddiejibson/5"><img src="https://img.shields.io/badge/donate-PayPal-brightgreen.svg"></a>
 <img src="https://requires.io/github/eddiejibson/chae-limitrr/requirements.svg?branch=master">
 <img src="https://img.shields.io/npm/dw/limitrr.svg">
@@ -12,6 +11,8 @@
 </div>
 
 Limitrr assists with the rate-limiting of various routes within your Express application. Unlike other similar packages, this utility allows the user to limit not only by the number of requests but also the number of completed actions (e.g allowing a certain amount of accounts to be successfully created within a timespan) and have such restricted with custom options. As well as this, custom discriminators are possible - you no longer have to limit by just the user's IP.
+
+If you appreciate this project, please 🌟 it on GitHub.
 
 **Pull Requests are welcomed**
 
@@ -179,6 +180,26 @@ limitrr.get({
 
 ```
 
+## Complete action/task count
+
+### limitrr.complete()
+
+**Returns**: Promise
+
+```javascript
+limitrr.complete({
+    "discriminator": discriminator, //Required
+    "route": route //Not Required
+});
+```
+
+#### Parameters
+
+*Must be passed into function via object*
+
+- **discriminator**: **Required** Where discriminator is the thing being limited (e.g x amount of completed actions per discriminator)
+- **route**: *String* What route should the values be inserted into? If this is not set, it will default to `default`.
+
 ## Removal of values from certain request/completed keys
 
 ### limitrr.reset()
@@ -199,7 +220,7 @@ limitrr.reset({
 
 - **discriminator**: **Required** Where discriminator is the thing being limited (e.g x amount of completed actions/requests per discriminator)
 - **type**: Which count do you wish to be reset? `requests` or `completed`? If this is not set, both will be removed.
-- **route**: *String* When route should the values be retrieved from? If this is not set, it will get the counts from the `default` route.
+- **route**: *String* What route should the values be retrieved from? If this is not set, it will get the counts from the `default` route.
 
 ``` javascript
 //Where discriminator is the thing being limited
@@ -244,9 +265,11 @@ limitrr.reset({
 
 **Required**: false
 
-**Type**: Object
+**Type**: Object OR String
 
 **Description**: Redis connection information.
+
+***Either pass in a string containing the URI of the redis instance or an object containing the connection information:***
 
 - **port**: *Integer* Redis port. Defaults to: `6379`
 
@@ -261,6 +284,9 @@ limitrr.reset({
 ### Example of the redis object that could be passed into Limitrr
 
 ``` javascript
+//Pass in a string containing a redis URI.
+"redis": "redis://127.0.0.1:6379/0"
+//Alternatively, use an object with the connection information.
 "redis": {
   "port": 6379, //Redis Port. Required: false. Defaults to 6379
   "host": "127.0.0.1", //Redis hostname. fequired: False. Defaults to "127.0.0.1".
@@ -333,5 +359,4 @@ Inside the routes object, you can define many separate routes and set custom rul
         "requestsPerExpiry": 500
     }
 }
-
 ```
