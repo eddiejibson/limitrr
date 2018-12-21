@@ -139,7 +139,7 @@ limitrr.get({
 *Must be passed into function via object*
 
 - **discriminator**: **Required** Where discriminator is the thing being limited (e.g x amount of completed actions/requests per discriminator)
-- **route**: *String* When route should the values be retrieved from? If this is not set, it will get the counts from the default route.
+- **route**: *String* What route should the values be retrieved from? If this is not set, it will get the counts from the default route.
 - **type**: *String* Instead of retrieving both values, you can specify either `requests` or `completed` in this key and only that will be returned as an integer.
 
 ```javascript
