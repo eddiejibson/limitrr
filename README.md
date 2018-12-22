@@ -12,6 +12,8 @@
 
 Limitrr assists with the rate-limiting of various routes within your Express application. Unlike other similar packages, this utility allows the user to limit not only by the number of requests but also the number of completed actions (e.g allowing a certain amount of accounts to be successfully created within a timespan) and have such restricted with custom options. As well as this, custom discriminators are possible - you no longer have to limit by just the user's IP.
 
+I've just released the same limitrr library, but in PHP. Check it out [here](http://github.com/eddiejibson/limitrr-php)
+
 If you appreciate this project, please 🌟 it on GitHub.
 
 **Pull Requests are welcomed**
@@ -139,7 +141,7 @@ limitrr.get({
 *Must be passed into function via object*
 
 - **discriminator**: **Required** Where discriminator is the thing being limited (e.g x amount of completed actions/requests per discriminator)
-- **route**: *String* When route should the values be retrieved from? If this is not set, it will get the counts from the default route.
+- **route**: *String* What route should the values be retrieved from? If this is not set, it will get the counts from the default route.
 - **type**: *String* Instead of retrieving both values, you can specify either `requests` or `completed` in this key and only that will be returned as an integer.
 
 ```javascript
@@ -283,7 +285,7 @@ limitrr.reset({
 
 - **db**: *Integer* Redis DB. Defaults to: `0`
 
-### Example of the redis object that could be passed into Limitrr
+### Example of the redis object/string that could be passed into Limitrr
 
 ``` javascript
 //Pass in a string containing a redis URI.
