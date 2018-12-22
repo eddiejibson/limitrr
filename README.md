@@ -223,8 +223,8 @@ limitrr.reset({
 *Must be passed into function via object*
 
 - **discriminator**: **Required** Where discriminator is the thing being limited (e.g x amount of completed actions/requests per discriminator)
-- **type**: Which count do you wish to be reset? `requests` or `completed`? If this is not set, both will be removed.
-- **route**: *String* What route should the values be retrieved from? If this is not set, it will get the counts from the `default` route.
+- **type**: *String* Which count do you wish to be reset? `requests` or `completed`? If this is not set, both will be removed.
+- **route**: *String* What route should the values be reset from? If this is not set, it will reset the counts from the `default` route
 
 ``` javascript
 //Where discriminator is the thing being limited
@@ -255,7 +255,7 @@ limitrr.reset({
     "discriminator": req.realIp,
     "route": "exampleRouteName"
     }).then((res) => {
-     if (res) {
+    if (res) {
         console.log("Requests removed from the route exampleRouteName");
     }
 }).catch((err) => {
