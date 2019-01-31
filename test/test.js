@@ -2,9 +2,6 @@
  * @Project: limitrr
  * @Created Date: Thursday, November 15th 2018, 6:17:26 pm
  * @Author: Edward Jibson
- * @Last Modified Time: November 17th 2018, 7:36:52 pm
- * @Last Modified By: Edward Jibson
- * @Copyright: (c) 2018 Oxro Holdings LLC
  */
 
 const mocha = require("mocha"),
@@ -142,9 +139,9 @@ describe("get() and reset()", () => {
     });
 });
 
-describe("complete()", () => {
+describe("incr()", () => {
     it("Should return true when incrementing completed actions count successfully", () => {
-        return limitrr.complete("test", "two").then((res) => {
+        return limitrr.complete({"discriminator": "test", "route": "two", "type": "completed"}).then((res) => {
             expect(res).to.be.true;
         });
     });
