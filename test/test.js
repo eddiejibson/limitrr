@@ -141,7 +141,7 @@ describe("get() and reset()", () => {
 
 describe("incr()", () => {
     it("Should return true when incrementing completed actions count successfully", () => {
-        return limitrr.complete({"discriminator": "test", "route": "two", "type": "completed"}).then((res) => {
+        return limitrr.incr({"discriminator": "test", "route": "two", "type": "completed"}).then((res) => {
             expect(res).to.be.true;
         });
     });
