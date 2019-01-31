@@ -184,15 +184,16 @@ limitrr.get({
 
 ```
 
-## Complete action/task count
+## Complete action/task or request count
 
-### limitrr.complete()
+### limitrr.incr()
 
 **Returns**: Promise
 
 ```javascript
 limitrr.complete({
     "discriminator": discriminator, //Required
+    "type": type, //Not Required
     "route": route //Not Required
 });
 ```
@@ -202,6 +203,7 @@ limitrr.complete({
 *Must be passed into function via object*
 
 - **discriminator**: **Required** Where discriminator is the thing being limited (e.g x amount of completed actions per discriminator)
+- **type**: *String* Which count do you wish to be increased? `"requests"` and `"completed"`? If this is not set, this will default to `"completed"`
 - **route**: *String* What route should the values be inserted into? If this is not set, it will default to `default`.
 
 ## Removal of values from certain request/completed keys
@@ -223,7 +225,7 @@ limitrr.reset({
 *Must be passed into function via object*
 
 - **discriminator**: **Required** Where discriminator is the thing being limited (e.g x amount of completed actions/requests per discriminator)
-- **type**: *String* Which count do you wish to be reset? `requests` or `completed`? If this is not set, both will be removed.
+- **type**: *String* Which count do you wish to be reset? `"requests"` or `"completed"`? If this is not set, both will be removed.
 - **route**: *String* What route should the values be reset from? If this is not set, it will reset the counts from the `default` route
 
 ``` javascript
