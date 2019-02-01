@@ -10,9 +10,9 @@
 <p>NodeJS rate limiting using Redis - includes Express middleware.</p>
 </div>
 
-Limitrr assists with the rate-limiting of various routes within your Express application. Unlike other similar packages, this utility allows the user to limit not only by the number of requests but also the number of completed actions (e.g allowing a certain amount of accounts to be successfully created within a timespan) and have such restricted with custom options. As well as this, custom discriminators are possible - you no longer have to limit by just the user's IP.
+Limitrr assists with the rate-limiting of various routes within your NodeJS application. Unlike other similar packages, this utility allows the user to limit not only by the number of requests but also the number of completed actions (e.g allowing a certain amount of accounts to be successfully created within a timespan) and have such restricted with custom options. As well as this, custom discriminators are possible - you no longer have to limit by just the user's IP. Included also within this package are various middleware functions for Express. However, the core functions work perfectly fine if you're not using such a package and chose to do something else, instead.
 
-I've just released the same limitrr library, but in PHP. Check it out [here](http://github.com/eddiejibson/limitrr-php)
+I've effectively just released the same limitrr library, but in PHP. Check it out [here](http://github.com/eddiejibson/limitrr-php)
 
 If you appreciate this project, please 🌟 it on GitHub.
 
