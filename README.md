@@ -50,7 +50,7 @@ const limitrr = new Limitrr({
     },
     //General limitrr options
     "options": {
-        "expiry": 900,
+        "keyName": "myApp",
         //There are many more options all of which can be seen further into the documentation under the "configuration" title
     },
     "routes": {
