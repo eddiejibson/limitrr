@@ -191,7 +191,7 @@ limitrr.get({
 **Returns**: Promise
 
 ```javascript
-limitrr.complete({
+limitrr.incr({
     "discriminator": discriminator, //Required
     "type": type, //Not Required
     "route": route //Not Required
