@@ -1,11 +1,11 @@
 <div align="center">
-<a href="https://github.com/eddiejibson/chae-limitrr"><img alt="chae" src="https://github.com/eddiejibson/limitrr/raw/master/icon.png" width="487.5" height="97.3"></a>
+<a href="https://github.com/eddiejibson/limitrr"><img alt="chae" src="https://github.com/eddiejibson/limitrr/raw/master/icon.png" width="487.5" height="97.3"></a>
 <br>
 <br>
-<img src="https://circleci.com/gh/eddiejibson/chae-limitrr.svg?style=svg"></img>
-<img src="https://www.codefactor.io/repository/github/eddiejibson/chae-limitrr/badge">
+<img src="https://circleci.com/gh/eddiejibson/limitrr.svg?style=svg"></img>
+<img src="https://www.codefactor.io/repository/github/eddiejibson/limitrr/badge">
 <a href="https://paypal.me/eddiejibson/5"><img src="https://img.shields.io/badge/donate-PayPal-brightgreen.svg"></a>
-<img src="https://david-dm.org/eddiejibson/chae-limitrr.svg">
+<img src="https://david-dm.org/eddiejibson/limitrr.svg">
 <img src="https://img.shields.io/npm/dt/limitrr.svg">
 <p>NodeJS rate limiting using Redis - includes Express middleware.</p>
 </div>
