@@ -2,7 +2,7 @@
   "name": "limitrr",
   "version": "3.9.989",
   "description": "Rate limiting for Express using Redis.",
-  "repository": "https://github.com/eddiejibson/chae-limitrr.git",
+  "repository": "https://github.com/eddiejibson/limitrr.git",
   "main": "lib/limitrr.js",
   "directories": {
     "lib": "lib"
@@ -32,7 +32,8 @@
     "limitr",
     "limitrr",
     "attack",
-    "light"
+    "light",
+    "protection"
   ],
   "scripts": {},
   "author": "Edward Jibson",
