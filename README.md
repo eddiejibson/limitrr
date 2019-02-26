@@ -1,5 +1,5 @@
 <div align="center">
-<a href="https://github.com/eddiejibson/chae-limitrr"><img alt="chae" src="icon.jpg" width="487.5" height="97.3"></a>
+<a href="https://github.com/eddiejibson/chae-limitrr"><img alt="chae" src="https://github.com/eddiejibson/limitrr/raw/master/icon.png" width="487.5" height="97.3"></a>
 <br>
 <br>
 <img src="https://circleci.com/gh/eddiejibson/chae-limitrr.svg?style=svg"></img>
