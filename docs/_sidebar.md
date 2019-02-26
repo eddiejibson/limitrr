@@ -1,1 +1,3 @@
-- [Quick Start](quickstart.md)
+- Getting Started
+  - [Quick Start](quickstart.md)
+  - [Configuration](configuration.md)
