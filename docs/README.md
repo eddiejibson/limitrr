@@ -18,5 +18,6 @@ For more details (and how to get started), visit the [Quick Start](quickstart.md
 - Forgiving (If a value is not set, a default is in place which will work effectively instead of just crashing).
 - Well documented.
 
+## Donate
 
-
+If you're finding limitrr helpful, [consider donating](https://paypal.me/eddiejibson/5) to allow me to continue maintaining both this and a variety of exciting other projects.
