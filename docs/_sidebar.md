@@ -11,5 +11,5 @@
     - [Reset/remove value (.reset)](reset.md)
     - Express Middleware
         - [Limiting (.limit)](limit.md)
-        - [Getting user's real IP (.getIp)]()
+        - [Getting user's real IP (.getIp)](getip.md)
 - [Headers](headers.md)
