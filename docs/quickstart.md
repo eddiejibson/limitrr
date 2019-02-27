@@ -1,5 +1,7 @@
 # Quick Start
 
+## Installation
+
 ```bash
 npm install --save limitrr
 ```
@@ -12,5 +14,7 @@ const limitrr = new Limitrr();
 ```
 
 You can initialize the Limitrr class as many times as you wish, obviously.
+
+**Next Steps:** [Configuration](configuration.md)
 
 

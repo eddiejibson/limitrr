@@ -1,2 +1,15 @@
 - [Quick Start](quickstart.md)
-- [Configuration](configuration.md)
+- Configuration
+    - [Info](configuration.md)
+    - [Redis](redis.md)
+    - [Routes](routes.md)
+    - [Options](options.md)
+- Functions
+    - [Get value (.get)](get.md)
+
+    - [Increase value (.incr)](incr.md)
+    - [Reset/remove value (.reset)](reset.md)
+    - Express Middleware
+        - [Limiting (.limit)](limit.md)
+        - [Getting user's real IP (.getIp)]()
+- [Headers](headers.md)
