@@ -20,6 +20,12 @@ For further specific documentation, navigating through the content in the Sideba
 - Forgiving (If a value is not set, a default is in place which will work effectively instead of just crashing).
 - Well documented.
 
+## Issues/Questions
+
+If you've found any problems/bugs or if you have any questions, feel free to [open an issue on our GitHub repository](https://github.com/eddiejibson/limitrr/issues). We'll get back to you quickly. 🤞
+
 ## Donate
 
 If limitrr is helpful to you or your project(s), [consider donating](https://paypal.me/eddiejibson/5) to allow me to continue maintaining both this and a variety of exciting other projects. ❤️
+
+**Next Steps:** [Quick Start](quickstart.md)
