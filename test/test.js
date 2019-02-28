@@ -4,6 +4,16 @@
  * @Author: Edward Jibson
  */
 
+//just to let you know
+
+//i'm redoing
+
+//the tests
+
+//they could be better
+
+//ty
+
 const chai = require("chai"),
     chaiHttp = require("chai-http"),
     {
@@ -55,11 +65,6 @@ chai.use(chaiHttp);
 
 
 describe("Limitrr object test", () => {
-    // it("Should have connected to Redis", (done) => {
-    //     let isConnected = limitrr.getConnection()
-    //     expect(isConnected).to.be.true;
-    //     done();
-    // });
     it("Set empty options to correct default properties", (done) => {
         let options = limitrr.getOptions();
         expect(options).to.be.a("object");
