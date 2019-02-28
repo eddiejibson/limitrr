@@ -52,12 +52,12 @@ limitrr.incr({discriminator: discriminator});
 let result = await limitrr.incr({discriminator: "1.1.1.1", route: "exampleRoute", type: "requests"}).catch((err) => {
     //Handle error
 });
-//result will return true if success
+//returns current (now increased) value of the key (evaluates to true) if operation was success
 
 //"Normal" promise example to increase the "completed" count for the discriminator 
 //of "1.1.1.2" only for the route named "exampleRoute2"
 limitrr.incr({discriminator: "1.1.1.2", route: "exampleRoute2", type: "completed"}).then((result) => {
-    //returns true if success
+    //returns current (now increased) value of the key (evaluates to true) if operation was success
 }).catch((err) => {
     //Handle Error
 })
