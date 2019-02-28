@@ -2,7 +2,7 @@
 
 **Required:** False
 
-**Type:**: Object or String
+**Type:** Object or String
 
 **Description:** The Redis connection information.
 
