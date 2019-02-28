@@ -3,7 +3,7 @@
 <br>
 <br>
 <a href="https://circleci.com/gh/eddiejibson/limitrr"><img src="https://circleci.com/gh/eddiejibson/limitrr.svg?style=svg"></img></a>
-<img src="https://www.codefactor.io/repository/github/eddiejibson/limitrr/badge">
+<a href="https://www.codefactor.io/repository/github/eddiejibson/limitrr"><img src="https://www.codefactor.io/repository/github/eddiejibson/limitrr/badge"></a>
 <a href="https://paypal.me/eddiejibson/5"><img src="https://img.shields.io/badge/donate-PayPal-brightgreen.svg"></a>
 <img src="https://david-dm.org/eddiejibson/limitrr.svg">
 <img src="https://img.shields.io/npm/dt/limitrr.svg">
