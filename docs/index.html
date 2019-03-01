@@ -25,6 +25,7 @@
       name: "limitrr",
       loadSidebar: true,
       plugins: [
+        DocsifyCodefund.create(191),
         function (hook, vm) {
           hook.beforeEach(function (html) {
             if (/githubusercontent\.com/.test(vm.route.file)) {
@@ -43,6 +44,7 @@
     }
   </script>
   <script src="//unpkg.com/docsify/lib/docsify.min.js"></script>
+  <script src="//unpkg.com/docsify-plugin-codefund/index.js"></script>
 </body>
 
 </html>
