@@ -85,8 +85,8 @@ app.get("/registerUser/:user", limitrr.limit({
             //Handle error
         });
 
-            //In this example, we will be returning a
-            //success message as the action has been completed.
+        //In this example, we will be returning a
+        //success message as the action has been completed.
         return res.status(200).json({
             "message": "Success!"
         });
