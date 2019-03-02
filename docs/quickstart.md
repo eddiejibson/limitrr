@@ -15,9 +15,11 @@ const limitrr = new Limitrr();
 
 You can initialize the Limitrr class as many times as you wish, obviously.
 
-## Simple ExpressJS example
+## Examples
 
-- More examples for each function and for other applications (e.g if you're not using ExpressJS) can be found on the individual function pages. 
+There are many examples of each function and how to use it within their respective pages. 
+
+## Simple ExpressJS example
 
 ```javascript
 const express = require("express");
