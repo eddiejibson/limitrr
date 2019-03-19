@@ -35,11 +35,15 @@
     "light",
     "protection"
   ],
-  "scripts": {},
+  "scripts": {
+    "postinstall": "opencollective-postinstall"
+  },
   "author": "Edward Jibson",
   "license": "GPL-3.0-only",
   "dependencies": {
-    "ioredis": "^4.6.2"
+    "ioredis": "^4.6.2",
+    "opencollective-postinstall": "^2.0.2",
+    "opencollective": "^1.0.3"
   },
   "devDependencies": {
     "chai": "^4.2.0",
@@ -47,5 +51,9 @@
     "express": "^4.16.4",
     "mocha": "^6.0.2",
     "mocha-circleci-reporter": "0.0.3"
+  },
+  "collective": {
+    "type": "opencollective",
+    "url": "https://opencollective.com/limitrr"
   }
 }
