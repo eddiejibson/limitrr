@@ -8,7 +8,7 @@ If you're finding this library of use, please consider starring it on the [GitHu
 
 For more details (and how to get started), visit the [Quick Start](quickstart.md) page.
 
-For further specific documentation, navigating through the content in the Sidebar should get you what you want.
+For further specific documentation, navigating through the content in the Sidebar should help.
 
 ## Features
 
@@ -26,6 +26,6 @@ If you've found any problems/bugs or if you have any questions, feel free to [op
 
 ## Donate
 
-If limitrr is helpful to you or your project(s), [consider donating](https://paypal.me/eddiejibson/5) to allow me to continue maintaining both this and a variety of exciting other projects. ❤️
+If Limitrr is helpful to you or your project(s), [consider donating](https://paypal.me/eddiejibson/5) to allow me to continue maintaining both this and a variety of exciting other projects. ❤️
 
 **Next Steps:** [Quick Start](quickstart.md)
