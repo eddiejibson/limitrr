@@ -5,6 +5,7 @@
 <a href="https://circleci.com/gh/eddiejibson/limitrr"><img src="https://circleci.com/gh/eddiejibson/limitrr.svg?style=svg"></img></a>
 <a href="https://www.codefactor.io/repository/github/eddiejibson/limitrr"><img src="https://www.codefactor.io/repository/github/eddiejibson/limitrr/badge"></a>
 <a href="https://paypal.me/eddiejibson/5"> <img src="https://img.shields.io/badge/donate-PayPal-brightgreen.svg"></a>
+<a href="https://app.fossa.io/projects/git%2Bgithub.com%2Feddiejibson%2Flimitrr?ref=badge_shield" alt="FOSSA Status"><img src="https://app.fossa.io/api/projects/git%2Bgithub.com%2Feddiejibson%2Flimitrr.svg?type=shield"/></a>
 <img src="https://david-dm.org/eddiejibson/limitrr.svg">
 <img src="https://img.shields.io/npm/dt/limitrr.svg">
 <a href="#backers" alt="sponsors on Open Collective"><img src="https://opencollective.com/limitrr/backers/badge.svg" /></a> <a href="#sponsors" alt="Sponsors on Open Collective"><img src="https://opencollective.com/limitrr/sponsors/badge.svg" /></a>
@@ -41,3 +42,7 @@ This project exists thanks to all the people who contribute.
 
 
 
+
+
+## License
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Feddiejibson%2Flimitrr.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Feddiejibson%2Flimitrr?ref=badge_large)
