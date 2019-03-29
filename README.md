@@ -26,6 +26,7 @@ If you appreciate this project, please 🌟 it on GitHub.
 - [x]   Return headers to user with rate limiting details - how many requests/actions remain before restrictions are put in place, how long before the values expire and how many requests/actions are allowed per that route.
 - [x]   Unit Tests
 - [x]   Pass parameters into functions via an object
+- [ ]   Ability to slow down responses after a certain amount of requests
 
 ## Attention: We've moved the documentation! Each function now has it own page along with better examples.
 
