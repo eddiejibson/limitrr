@@ -31,6 +31,9 @@ routes: {
         completedActionsPerExpiry: 5,
         expiry: 900,
         completedExpiry: 900,
+        delayStart: 40,
+        delayInterval: 1,
+        delayDuration: 500,
         errorMsgs: {
             requests: "As you have made too many requests, you are being rate limited.",
             completed: "As you performed too many successful actions, you have been rate limited."
