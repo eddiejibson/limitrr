@@ -44,12 +44,16 @@ const limitrr = new Limitrr({
         "default": {
             //You do not have to overwrite all the options, only the
             //ones needed.
-            "requestsPerExpiry": 500
+            "requestsPerExpiry": 500,
+            //After how many requests should delays start?
+            "delayStart": 50
         },
         "createUser": {
             //Not all keys need to be set here either, they will resolve
             //to the default if not set.
-            "requestsPerExpiry": 300
+            "requestsPerExpiry": 300,
+            //In this route, delayed responses will not take place.
+            "delayStart": null
         }
     }
 });
