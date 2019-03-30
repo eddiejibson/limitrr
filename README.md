@@ -8,13 +8,13 @@
 <img src="https://david-dm.org/eddiejibson/limitrr.svg">
 <img src="https://img.shields.io/npm/dt/limitrr.svg">
 <a href="#backers" alt="sponsors on Open Collective"><img src="https://opencollective.com/limitrr/backers/badge.svg" /></a> <a href="#sponsors" alt="Sponsors on Open Collective"><img src="https://opencollective.com/limitrr/sponsors/badge.svg" /></a>
-<p>NodeJS rate limiting using Redis - includes Express middleware.</p>
+<p>NodeJS rate limiting and response delaying using Redis - includes Express middleware.</p>
 <h4><a href="https://limitrr.js.org">Official Documentation (limitrr.js.org)</a></h4>
 </div>
 
-Limitrr assists with the rate-limiting of various routes within your NodeJS application. Unlike other similar packages, this utility allows the user to limit not only by the number of requests but also the number of completed actions (e.g allowing a certain amount of accounts to be successfully created within a timespan) and have such restricted with custom options. As well as this, custom discriminators are possible - you no longer have to limit by just the user's IP. Included also within this package are various middleware functions for Express. However, the core functions work perfectly fine if you're not using such a package and chose to do something else, instead.
+Limitrr assists with the rate-limiting and response delaying of various routes within your NodeJS application. Unlike other similar packages, this utility allows the user to limit not only by the number of requests but also the number of completed actions (e.g allowing a certain amount of accounts to be successfully created within a timespan) and have such restricted with custom options. As well as this, custom discriminators are possible - you no longer have to limit by just the user's IP. Limitrr can also delay responses after a certain amount of requests have been made - you don't have to just rate-limit potentially malicious requests, you can delay them instead or as well as. Included also within this package are various middleware functions for Express. However, the core functions work perfectly fine if you're not using such a package and chose to do something else, instead.
 
-I've effectively just released the same limitrr library, but in PHP. Check it out [here](http://github.com/eddiejibson/limitrr-php)
+I've effectively released a similiar limitrr library, but in PHP. Check it out [here](http://github.com/eddiejibson/limitrr-php)
 
 If you appreciate this project, please 🌟 it on GitHub.
 
