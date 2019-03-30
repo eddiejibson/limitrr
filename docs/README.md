@@ -26,6 +26,6 @@ If you've found any problems/bugs or if you have any questions, feel free to [op
 
 ## Donate
 
-If Limitrr is helpful to you or your project(s), [consider donating](https://paypal.me/eddiejibson/5) to allow me to continue maintaining both this and a variety of exciting other projects. ❤️
+If Limitrr is helpful to you or your project(s), [consider donating](https://paypal.me/eddiejibson/5) to allow me to continue maintaining both this and a variety of exciting other projects.
 
 **Next Steps:** [Quick Start](quickstart.md)
