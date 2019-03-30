@@ -1,6 +1,6 @@
 {
   "name": "limitrr",
-  "version": "4.0.0",
+  "version": "5.0.0",
   "description": "Rate limiting for Express using Redis.",
   "repository": "https://github.com/eddiejibson/limitrr.git",
   "main": "lib/limitrr.js",
