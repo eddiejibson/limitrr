@@ -14,6 +14,7 @@
 
 //ty
 
+
 const chai = require("chai"),
     chaiHttp = require("chai-http"),
     {
@@ -38,8 +39,11 @@ const limitrr = new Limitrr({
             "requestsPerExpiry": 300
         },
         "two": {
-            "requestsPerExpiry": 1,
-            "keyName": "limitrrTest"
+            "requestsPerExpiry": 3,
+            "keyName": "limitrrTest",
+            "delayStart": 2,
+            "delayDuration": 500,
+            "delayInterval": 1
         },
         "empty": {}
     }
@@ -77,7 +81,7 @@ describe("Limitrr object test", () => {
     it("Set empty route to correct default properties", (done) => {
         let routes = limitrr.getRoutes();
         expect(routes).to.be.a("object");
-        expect(routes.empty).to.have.keys(["requestsPerExpiry", "completedActionsPerExpiry", "expiry", "completedExpiry", "errorMsgs"])
+        expect(routes.empty).to.have.keys(["requestsPerExpiry", "completedActionsPerExpiry", "expiry", "completedExpiry", "errorMsgs", "delayDuration", "delayInterval", "delayStart", "sendHeaders"])
         expect(routes.empty.requestsPerExpiry).to.equal(100);
         expect(routes.empty.completedActionsPerExpiry).to.equal(5);
         expect(routes.empty.expiry).to.equal(900);
@@ -96,8 +100,28 @@ describe("limit()", () => {
             expect(res.body).to.be.a("object");
             expect(res.body.pass).to.be.true;
             expect(res.headers).to.be.a("object");
-            expect(res.headers["x-ratelimit-limit"]).to.equal("1");
-            expect(res.headers["x-ratelimit-remaining"]).to.equal("0");
+            expect(res.headers["x-ratelimit-limit"]).to.equal("3");
+            expect(res.headers["x-ratelimit-remaining"]).to.equal("2");
+            done();
+        });
+    });
+    it("Should be delayed", (done) => {
+        let start = Date.now();
+        chai.request(app).get("/").end((err, res) => {
+            expect(res).to.have.status(200);
+            let finish = Date.now();
+            finish = finish - start;
+            expect(finish).to.be.above(500);
+            done();
+        });
+    });
+    it("Should be delayed, increasingly so after another request", (done) => {
+        let start = Date.now();
+        chai.request(app).get("/").end((err, res) => {
+            expect(res).to.have.status(200);
+            let finish = Date.now();
+            finish = finish - start;
+            expect(finish).to.be.above(1000);
             done();
         });
     });
@@ -116,7 +140,7 @@ describe("get() and reset()", () => {
         return limitrr.get("test", "two").then((res) => { //Testing compatibility with old way of passing in values to function
             expect(res).to.be.a("object");
             expect(res.requests).to.be.a("number");
-            expect(res.requests).to.equal(1);
+            expect(res.requests).to.equal(3);
             expect(res.completed).to.be.a("number");
             expect(res.completed).to.equal(0);
         });
@@ -145,7 +169,11 @@ describe("get() and reset()", () => {
 
 describe("incr()", () => {
     it("Should return true when incrementing completed actions count successfully", () => {
-        return limitrr.incr({"discriminator": "test", "route": "two", "type": "completed"}).then((res) => {
+        return limitrr.incr({
+            "discriminator": "test",
+            "route": "two",
+            "type": "completed"
+        }).then((res) => {
             expect(res).to.not.be.false;
             expect(res).to.not.be.null;
         });
