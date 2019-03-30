@@ -15,6 +15,7 @@ Inside the routes object, you can define many separate routes and set custom rul
 - **delayStart**: *Integer or null* After how many requests should delayed responses begin? If you do not want to delay any responses, and just rate-limit, you can set this to `null`. Defaults to `40` if not set.
 - **delayInterval**: *Integer* How often should the delay be increased by? If this was set to 1, for example, after every request past the value defined in `delayStart`, the delay will be multiplied by 2. If it was set to 2, for example, every 2 requests (after the intial delay) past the value defined in `delayStart`, the delay will be multiplied by 2. If this is not set, such will default to `1`.
 - **delayDuration**: *Integer* How long should a delay last **(IN MILISECONDS [ms])**? Defaults to `500` (500 miliseconds) if this value has not been set.
+- **sendHeaders**: *Boolean* Should headers with the current rate-limiting status (Remaining, Time until expire e.t.c) be returned with the request? Defaults to `true` if this value is not set.
 - **errorMsgs**: *Object* Seperate error messages for too many requests and too many completed actions. They have been given the respective key names "requests" and "actions". This will be returned to the user when they are being rate limited. If no string was set in `requests`, it will default to `"As you have made too many requests, you are being rate limited."`. Furthermore, if a value has not been set in `completed`, it will resolve to the string found in `requests`. Or, if that wasn't set either, `"As you performed too many successful actions, you have been rate limited."` will be it's value.
 
 ## Example
@@ -34,6 +35,7 @@ routes: {
         delayStart: 40,
         delayInterval: 1,
         delayDuration: 500,
+        sendHeaders: true,
         errorMsgs: {
             requests: "As you have made too many requests, you are being rate limited.",
             completed: "As you performed too many successful actions, you have been rate limited."
