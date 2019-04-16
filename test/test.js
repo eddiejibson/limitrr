@@ -67,7 +67,6 @@ app.use(limitrr.getIp());
 
 chai.use(chaiHttp);
 
-
 describe("Limitrr object test", () => {
     it("Set empty options to correct default properties", (done) => {
         let options = limitrr.getOptions();
