@@ -36,7 +36,7 @@
     "protection"
   ],
   "author": "Edward Jibson",
-  "license": "GPL-3.0-only",
+  "license": "MIT",
   "dependencies": {
     "ioredis": "^4.9.0"
   },
