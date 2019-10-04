@@ -17,6 +17,7 @@ Inside the routes object, you can define many separate routes and set custom rul
 - **delayDuration**: *Integer* How long should a delay last **(IN MILISECONDS [ms])**? Defaults to `500` (500 miliseconds) if this value has not been set.
 - **sendHeaders**: *Boolean* Should headers with the current rate-limiting status (Remaining, Time until expire e.t.c) be returned with the request? Defaults to `true` if this value is not set.
 - **errorMsgs**: *Object* Seperate error messages for too many requests and too many completed actions. They have been given the respective key names "requests" and "actions". This will be returned to the user when they are being rate limited. If no string was set in `requests`, it will default to `"As you have made too many requests, you are being rate limited."`. Furthermore, if a value has not been set in `completed`, it will resolve to the string found in `requests`. Or, if that wasn't set either, `"As you performed too many successful actions, you have been rate limited."` will be it's value.
+- **limitLocal**: *Boolean* Should Local IPs (127.0.0.1 or ::1) be ratelimited? Obviously rate-limiting local requests could be an issue with things like SSR. This will default to `false` if not set (will not limit)
 
 ## Example
 
