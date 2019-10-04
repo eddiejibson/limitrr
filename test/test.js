@@ -80,7 +80,7 @@ describe("Limitrr object test", () => {
     it("Set empty route to correct default properties", (done) => {
         let routes = limitrr.getRoutes();
         expect(routes).to.be.a("object");
-        expect(routes.empty).to.have.keys(["requestsPerExpiry", "completedActionsPerExpiry", "expiry", "completedExpiry", "errorMsgs", "delayDuration", "delayInterval", "delayStart", "sendHeaders"])
+        expect(routes.empty).to.have.keys(["requestsPerExpiry", "completedActionsPerExpiry", "expiry", "completedExpiry", "errorMsgs", "delayDuration", "delayInterval", "delayStart", "sendHeaders", "limitLocal"])
         expect(routes.empty.requestsPerExpiry).to.equal(100);
         expect(routes.empty.completedActionsPerExpiry).to.equal(5);
         expect(routes.empty.expiry).to.equal(900);
