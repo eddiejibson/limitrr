@@ -28,6 +28,7 @@ If you appreciate this project, please 🌟 it on GitHub.
 - [x]   Unit Tests
 - [x]   Pass parameters into functions via an object
 - [x]   Ability to slow down responses after a certain amount of requests
+- [x]   Extend options further to allow things like IP exclusion (asides from just local).
 
 ## Attention: We've moved the documentation! Each function now has it own page along with better examples.
 
