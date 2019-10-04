@@ -38,13 +38,13 @@
   "author": "Edward Jibson",
   "license": "MIT",
   "dependencies": {
-    "ioredis": "^4.11.2"
+    "ioredis": "^4.14.1"
   },
   "devDependencies": {
     "chai": "^4.2.0",
     "chai-http": "^4.3.0",
     "express": "^4.17.1",
-    "mocha": "^6.1.4",
+    "mocha": "^6.2.1",
     "mocha-circleci-reporter": "0.0.3"
   },
   "collective": {
