@@ -23,28 +23,22 @@ If you appreciate this project, please 🌟 it on GitHub.
 
 ## Roadmap
 
-- [x]   Create multiple route limits (separate expiry times e.t.c) without having to initialize the Limitrr class multiple times
-- [x]   Return headers to user with rate limiting details - how many requests/actions remain before restrictions are put in place, how long before the values expire and how many requests/actions are allowed per that route.
-- [x]   Unit Tests
-- [x]   Pass parameters into functions via an object
-- [x]   Ability to slow down responses after a certain amount of requests
-- [x]   Extend options further to allow things like IP exclusion (asides from just local).
+- [x] Create multiple route limits (separate expiry times e.t.c) without having to initialize the Limitrr class multiple times
+- [x] Return headers to user with rate limiting details - how many requests/actions remain before restrictions are put in place, how long before the values expire and how many requests/actions are allowed per that route.
+- [x] Unit Tests
+- [x] Pass parameters into functions via an object
+- [x] Ability to slow down responses after a certain amount of requests
+- [x] Extend options further to allow things like IP exclusion (asides from just local).
 
-## Attention: We've moved the documentation! Each function now has it own page along with better examples.
+## Documentation
 
-**Access the new documentation here:** [https://limitrr.js.org](https://limitrr.js.org)
-
-However, if you're familiar with the older documentation (some of which may be deprecated), you can view that [here](oldReadme.md)
+**Access the documentation here:** [https://limitrr.js.org](https://limitrr.js.org)
 
 ## Contributors
 
-This project exists thanks to all the people who contribute. 
+This project exists thanks to all the people who contribute.
 <a href="https://github.com/eddiejibson/limitrr/graphs/contributors"><img src="https://opencollective.com/limitrr/contributors.svg?width=890&button=false" /></a>
 
-
-
-
-
-
 ## License
+
 [![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Feddiejibson%2Flimitrr.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Feddiejibson%2Flimitrr?ref=badge_large)
