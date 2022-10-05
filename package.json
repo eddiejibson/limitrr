@@ -38,7 +38,7 @@
   "author": "Edward Jibson",
   "license": "MIT",
   "dependencies": {
-    "ioredis": "^4.17.3"
+    "ioredis": "^4.27.8"
   },
   "devDependencies": {
     "chai": "^4.2.0",
